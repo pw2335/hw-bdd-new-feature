@@ -1,0 +1,14 @@
+<h1>Similar Movies by <%= @movie.director %></h1>
+<p>From movie: <%= link_to @movie.title, movie_path(@movie) %></p >
+
+<% if @similar_movies.empty? %>
+  <p>No movies found with this director.</p >
+<% else %>
+  <ul>
+    <% @similar_movies.each do |movie| %>
+      <li><%= link_to movie.title, movie_path(movie) %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= link_to "Back to Movie Details", movie_path(@movie) %>
